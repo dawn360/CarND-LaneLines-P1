@@ -1,11 +1,6 @@
 
 **Finding Lane Lines on the Road**
 
-The goals / steps of this project are the following:
-* Make a pipeline that finds lane lines on the road
-* Reflect on your work in a written report
-
-
 [//]: # (Image References)
 
 [gray]: ./test_images_output/gray.jpg "Grayscale"
@@ -19,33 +14,30 @@ The goals / steps of this project are the following:
 
 ---
 
-### Reflection
+### Pipeline
 
-### 1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
-
-apply grayscale with `cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)`
+#### 1. apply grayscale with `cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)`
 ![alt text][gray]
 
-apply Gaussian smoothing to reduce noise with `cv2.GaussianBlur`
+#### 2. apply Gaussian smoothing to reduce noise with `cv2.GaussianBlur`
 ![alt text][blur_gray]
 
-find edges in image with `cv2.Canny` 
+#### 3. find edges in image with `cv2.Canny` 
 ![alt text][edges]
 
-assuming the camera is mounted at a fixed position on the vehicle based on test images
-we can use a polygon to focus on a region of interest mask
+#### 4. assuming the camera is mounted at a fixed position on the vehicle based on test images we can use a polygon to focus on a region of interest mask
 ![alt text][mask]
 
-mask edges image to focus on region of interest
+#### 5. mask edges image to focus on region of interest
 ![alt text][masked_edges]
 
-detect straight lines in region of interest with `cv2.HoughLinesP`
+#### 6. detect straight lines in region of interest with `cv2.HoughLinesP`
 ![alt text][hough_lines]
 
-hough lines on original image
+#### 7. hough lines on original image
 ![alt text][hough_lines_img]
 
-finally extrapolate lines to the top and bottom of the lane
+#### 8. finally extrapolate lines to the top and bottom of the lane
 ![alt text][solid_lines]
 
 To extrapolate lines to the top and bottom of the lane;
@@ -73,7 +65,7 @@ incorrect extrapolated lines.
 So solve this i had to average the points to smooth things out
 in other words avg all `x1` and `y1`
 
-### 2. Identify potential shortcomings with your current pipeline
+### Shortcomings
 
 
 one shortcoming i observed was when calculating the average of `x1` and `y1`
@@ -83,7 +75,7 @@ The region of interest shaped as a triangle tends to include a lot of irrelevant
 in cases of sharp turns in the road
 
 
-### 3. Suggest possible improvements to your pipeline
+### Possible improvements
 
 A possible improvement would be in addition to the avg `x1`, `x2` the pipeline
 needs a way to detect and exclude lines from objects that are close to the lane
