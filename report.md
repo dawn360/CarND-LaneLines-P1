@@ -13,8 +13,8 @@ The goals / steps of this project are the following:
 [edges]: ./test_images_output/edges.jpg "edges"
 [mask]: ./test_images_output/mask.jpg "mask"
 [mask_edges]: ./test_images_output/mask_edges.jpg "masked_edges"
-[hough_lines]: ./test_images_output/mask.jpg "hough_lines"
-[hough_lines_img]: ./test_images_output/mask.jpg "hough_lines_img"
+[hough_lines]: ./test_images_output/hough_lines.jpg "hough_lines"
+[hough_lines_img]: ./test_images_output/hough_lines_img.jpg "hough_lines_img"
 [solid_lines]: ./test_images_output/solidYellowLeft.jpg "solid_lines"
 
 ---
